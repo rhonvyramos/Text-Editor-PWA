@@ -28,6 +28,24 @@ module.exports = () => {
       new InjectManifest({
         swSrc: "./src-sw.js",
         swDest: 'src-sw.js'
+      }),
+
+      new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
+        name: "DAH TEXT EDITOR THING",
+        short_name: "DAT TEXT EDITOR",
+        description: "This is a text editor!",
+
+        start_url: './',
+        publicPath: './',
+        icons: [
+          {
+            src: path.resolve('src/images/logo.png'),
+            sizes: [96, 128, 192, 256, 384, 512],
+            destination: path.join('assets', 'icons'),
+          }
+        ]
       })
     ],
 
